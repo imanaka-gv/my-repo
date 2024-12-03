@@ -1,0 +1,17 @@
+name: Change Shell
+on: push
+jobs:
+  print:
+    runs-on: ubuntu-latest
+    steps:
+      - shell: bash
+        run: echo "${SHELL}"
+      - shell: python {0}
+        run: |
+          import os
+          print(os.environ["PATH"])
+          print(os.environ.get("SHELL", "Shell environment variable not set"))
+
+
+
+
